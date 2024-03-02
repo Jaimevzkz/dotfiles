@@ -3,7 +3,7 @@ This repository contains the dotfiles I use for my linux config. it should be cl
 ## stow
 `sudo apt-get install stow`
 in the dotfiles (should be cloned in the home directory) directory: `stow .`
-this will create an image tree in the home directory
+this will create an image tree in the home directory [Useful video on how to configure the dotfile setup](https://www.youtube.com/watch?v=y6XCebnB9gs)
 ## .zshrc
 change original .zshrc file: `mv ~/.zshrc ~/.zshrc.bak`
 ## init.vim

@@ -1,4 +1,4 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+#Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 #
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -115,7 +115,7 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-
+# Folder shortcuts
 alias uni='/home/vzkz/Ingenieria_Informatica/Cuarto && eza -lah'
 alias tfg='/home/vzkz/Ingenieria_Informatica/Cuarto/TFG && eza -lah'
 alias cote='/home/vzkz/Ingenieria_Informatica/Cuarto/Arena_Practicas/COTE && eza -lah'
@@ -124,6 +124,7 @@ alias sl='/home/vzkz/Own_Pojects/Salamandra && eza -lah'
 alias dw='/home/vzkz/Downloads && eza -lah'
 alias slmpull='cd salamandra-server && echo "\nPull server:" && git pull && cd .. && cd salamandra-android && echo "\nPull android:" && git pull && cd .. && cd notes && echo "\nPull notes:" && git pull && cd .. && cd salamandra-website && echo "\nPull web:" && git pull && cd ..'
 
+#git
 psh() {
     if [ -z "$1" ]; then
         echo "Por favor, proporciona un mensaje de commit."
@@ -132,8 +133,13 @@ psh() {
     fi
 }
 
+alias gs='git status'
+
 export PATH="/opt/maven/bin:$PATH"
 
+alias l="eza --icons -lah"
+alias v="nvim"
+alias e="exit"
 
 # Added by Amplify CLI binary installer
 export PATH="$HOME/.amplify/bin:/home/vzkz/.local/bin:$PATH"
@@ -146,3 +152,4 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 #Starship
 eval "$(starship init zsh)"
+

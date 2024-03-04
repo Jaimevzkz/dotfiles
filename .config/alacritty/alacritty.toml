@@ -19,6 +19,8 @@ position.y = 200
 decorations = "none"
 decorations_theme_variant = "Dark" # "Light"
 
+startup_mode = "maximized"
+
 
 [font]
 

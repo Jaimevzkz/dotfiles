@@ -140,6 +140,7 @@ export PATH="/opt/maven/bin:$PATH"
 alias l="eza --icons -lah"
 alias v="nvim"
 alias e="exit"
+alias t="tmux attach-session -t sess"
 
 # Added by Amplify CLI binary installer
 export PATH="$HOME/.amplify/bin:/home/vzkz/.local/bin:$PATH"

@@ -84,6 +84,7 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+export PATH="$PATH:/opt/nvim-linux64/bin"
 
 # User configuration
 
@@ -124,6 +125,7 @@ alias sl='/home/vzkz/Own_Pojects/Salamandra && eza -lah'
 alias dw='/home/vzkz/Downloads && eza -lah'
 alias slmpull='cd salamandra-server && echo "\nPull server:" && git pull && cd .. && cd salamandra-android && echo "\nPull android:" && git pull && cd .. && cd notes && echo "\nPull notes:" && git pull && cd .. && cd salamandra-website && echo "\nPull web:" && git pull && cd ..'
 
+
 #git
 psh() {
     if [ -z "$1" ]; then
@@ -134,6 +136,7 @@ psh() {
 }
 
 alias gs='git status'
+alias lg='lazygit'
 
 export PATH="/opt/maven/bin:$PATH"
 

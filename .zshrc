@@ -103,26 +103,13 @@ export PATH="$PATH:/opt/nvim-linux64/bin"
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-#source ~/powerlevel10k/powerlevel10k.zsh-theme
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# Folder shortcuts
-alias uni='/home/vzkz/Ingenieria_Informatica/Cuarto && eza -lah'
-alias tfg='/home/vzkz/Ingenieria_Informatica/Cuarto/TFG && eza -lah'
-alias cote='/home/vzkz/Ingenieria_Informatica/Cuarto/Arena_Practicas/COTE && eza -lah'
-alias kt='/home/vzkz/Own_Pojects/kotlin_WorkSpace && eza -lah'
-alias sl='/home/vzkz/Own_Pojects/Salamandra && eza -lah'
-alias dw='/home/vzkz/Downloads && eza -lah'
+# Set personal aliases, overriding those provided by oh-my-zsh libs, plugins, and themes. Aliases can be placed here, though oh-my-zsh users are encouraged to define aliases within the ZSH_CUSTOM folder. For a full list of active aliases, run `alias`. Example aliases alias zshconfig="mate ~/.zshrc" alias ohmyzsh="mate ~/.oh-my-zsh" source ~/powerlevel10k/powerlevel10k.zsh-theme # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh. [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh # Folder shortcuts
+alias uni='/home/vzkz/Ingenieria_Informatica/Cuarto && eza --icons -lah'
+alias tfg='/home/vzkz/Ingenieria_Informatica/Cuarto/TFG && eza --icons -lah'
+alias cote='/home/vzkz/Ingenieria_Informatica/Cuarto/Arena_Practicas/COTE && eza --icons -lah'
+alias kt='/home/vzkz/Own_Pojects/kotlin_WorkSpace && eza --icons -lah'
+alias sl='/home/vzkz/Own_Pojects/Salamandra && eza --icons -lah'
+alias dw='/home/vzkz/Downloads && eza --icons -lah'
 alias slmpull='cd salamandra-server && echo "\nPull server:" && git pull && cd .. && cd salamandra-android && echo "\nPull android:" && git pull && cd .. && cd notes && echo "\nPull notes:" && git pull && cd .. && cd salamandra-website && echo "\nPull web:" && git pull && cd ..'
 
 
@@ -135,9 +122,7 @@ psh() {
     fi
 }
 
-alias gs='git status'
-alias lg='lazygit'
-
+alias gs='git status' alias lg='lazygit'
 export PATH="/opt/maven/bin:$PATH"
 
 alias l="eza --icons -lah"
@@ -145,10 +130,8 @@ alias v="nvim"
 alias e="exit"
 alias t="tmux"
 
-# Added by Amplify CLI binary installer
-export PATH="$HOME/.amplify/bin:/home/vzkz/.local/bin:$PATH"
-
-#zoxide
+# Added by Amplify CLI binary installer export 
+PATH="$HOME/.amplify/bin:/home/vzkz/.local/bin:$PATH" 
 eval "$(zoxide init --cmd cd zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

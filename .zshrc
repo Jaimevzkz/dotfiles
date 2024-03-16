@@ -132,6 +132,8 @@ alias t="tmux"
 
 # Added by Amplify CLI binary installer export 
 PATH="$HOME/.amplify/bin:/home/vzkz/.local/bin:$PATH" 
+
+# zoxide
 eval "$(zoxide init --cmd cd zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

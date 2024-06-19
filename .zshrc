@@ -142,3 +142,4 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 #Starship
 eval "$(starship init zsh)"
 
+export PATH="/home/vzkz/Own_Pojects/Salamandra/dependencies/zig/zig-linux-x86_64-0.12.0:$PATH"

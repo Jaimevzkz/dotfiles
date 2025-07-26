@@ -1,0 +1,72 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "display": {
+    "separator": " : "
+  },
+  "logo": {
+    "source": "Linux_small", // search for logos: fastfetch --list-logos or --print-logos
+    "padding": {
+      "top": 2,
+      "right": 1,
+      "left": 2
+    },
+  },
+  "modules": [
+    {
+      "type": "custom",
+      "format": ""
+    },
+    {
+      "type": "os",
+      "key": "   OS",
+    },
+    {
+      "type": "kernel",
+      "key": "  󰌽 Kernel",
+      "keyColor": "97"  // White
+    },
+    {
+      "type": "packages",
+      "key": "  󰏗 Packages",
+      "keyColor": "34"  // Keeping the same
+    },
+    {
+      "type": "display",
+      "key": "  󱍜 Display",
+      "keyColor": "38;5;208"  // Random: Bright Orange
+    },
+    {
+      "type": "wm",
+      "key": "   WM",
+      "keyColor": "38;5;81"  // Light Blue
+    },
+    {
+      "type": "terminal",
+      "key": "   Terminal",
+      "keyColor": "90"  // Grey
+    },
+    {
+      "type": "uptime",
+      "key": "   Uptime ",
+      "keyColor": "34",
+    },
+    {
+      "type": "cpu",
+      "format": "{1}",
+      "key": "   CPU",
+      "keyColor": "38;5;118"  // Bright Green
+    },
+    {
+      "type": "gpu",
+      "format": "{2}",
+      "key": "   GPU",
+      "keyColor": "38;5;220"  // Yellow
+    },
+    {
+      "type": "memory",
+      "key": "   Memory",
+      "keyColor": "38;5;99"  // Pinkish Purple
+    },
+  ]
+}
+

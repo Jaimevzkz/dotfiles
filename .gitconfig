@@ -1,0 +1,7 @@
+[init]
+	defaultBranch = main
+[fetch]
+	prune = true
+[user]
+	email = jaimevazquezmartin@protonmail.com
+	name = Jaime

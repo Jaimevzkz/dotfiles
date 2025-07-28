@@ -1,4 +1,4 @@
-add_newline = false
+add_newline = true
 format = "$directory$character"
 right_format = "$all"
 
@@ -10,7 +10,7 @@ disabled = true
 symbol = " "
 
 [directory]
-read_only = " 󰌾"
+read_only = "󰌾 "
 
 [docker_context]
 symbol = " "

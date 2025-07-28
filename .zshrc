@@ -29,7 +29,8 @@ alias bat="cat"
 alias wifi="sudo nmtui"
 
 #Tiledmedia
-alias sdk="nautilus /home/vzkz/tiledmedia/TiledmediaCore/Showcase/android/kotlin/flat/app/libs"
+alias libs=" nautilus ~/tiledmedia/TiledmediaCore/Showcase/android/kotlin/flat/app/libs"
+alias sdklibs="nautilus ~/tiledmedia/TiledmediaCore/SDK/Android/ClearVRSDK/tiledmediasdk/build/outputs/aar"
 function CleanAndroidCacheTiledmediaSDK() {                                      
    find  ~/tiledmedia/TiledmediaCore/SDK/Android -type d -name ".gradle"  -exec rm -rf {} \;
    find  ~/tiledmedia/TiledmediaCore/SDK -type d -name ".cache"  -exec rm -rf {} \;
@@ -67,5 +68,5 @@ export GOPATH=~/tiledmedia/TiledmediaCore/Tools/ArchlinuxPKGBUILDs/go-tiledmedia
 export PATH="$GOPATH/bin:$PATH"
 export PATH=$GOPATH:$PATH
 
-#export GOPROXY=https://proxy.golang.org,direct
-#export GOSUMDB=sum.golang.org
+export GOPROXY=https://proxy.golang.org,direct
+export GOSUMDB=sum.golang.org

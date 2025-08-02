@@ -8,5 +8,6 @@ Once a fresh Arch linux install is ready on your system, follow this steps to se
 - Navigate to dotfiles repository: `cd ~/dotfiles`
 - Give the install script execution permission (in case it's not executable by default): `chmod +x initial_install.sh` 
 - Run the install script: `./initial_install.sh`
+  - When running the `stow .`, some files/directories may cause conflicts. In this case you should remove them or rename them as a backup (i.e. `mv ~/.zshrc ~/.zshrc.bak`) and run the script again (no worries about reinstalling packages, as they will be ignored if they are already installed)
 - Reboot the system: `sudo reboot`
 Congrats! Now you can log in to hyprland or gnome and start using the system!

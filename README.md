@@ -6,7 +6,7 @@ Once a fresh Arch linux install is ready on your system, follow this steps to se
 - Install git: `sudo pacman -S git`
 - Clone this dotfiles repository: `git clone https://github.com/Jaimevzkz/dotfiles.git ~`
 - Navigate to dotfiles repository: `cd ~/dotfiles`
-- Give the install script execution permission: `chmod +x initial_install.sh` 
+- Give the install script execution permission (in case it's not executable by default): `chmod +x initial_install.sh` 
 - Run the install script: `./initial_install.sh`
 - Reboot the system: `sudo reboot`
 Congrats! Now you can log in to hyprland or gnome and start using the system!

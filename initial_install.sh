@@ -18,11 +18,6 @@ makepkg -si --noconfirm
 cd ..
 rm -rf yay
 
-# 2. Clone dotfiles
-info "Cloning dotfiles repo..."
-cd ~
-git clone git@github.com:Jaimevzkz/dotfiles.git
-
 # 3. Install packages using yay
 info "Installing packages with yay..."
 yay -S --noconfirm fastfetch zsh kitty syncthing obsidian nvim lazygit tree starship \

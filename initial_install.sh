@@ -21,7 +21,7 @@ rm -rf yay
 # 3. Install packages using yay
 info "Installing packages with yay..."
 yay -S --noconfirm fastfetch zsh kitty syncthing obsidian nvim lazygit tree starship \
-  zoxide fzf tmux eza htop stow ttf-firacode-nerd android-studio zen-browser \
+  zoxide fzf tmux eza htop stow ttf-firacode-nerd android-studio \
   signal-desktop android-sdk-platform-tools usbutils docker docker-compose webcord \
   fuse gnome-tweaks hyprland wofi hypridle hyprlock hyprpaper dolphin \
   networkmanager pamixer brightnessctl hyprshot waybar blueman kanshi dunst otf-font-awesome ttf-space-mono-nerd

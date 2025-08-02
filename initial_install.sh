@@ -51,7 +51,7 @@ git clone https://github.com/jeffreytse/zsh-vi-mode ${ZSH_CUSTOM:-~/.oh-my-zsh/c
 
 # 8. Install tmux plugin manager
 info "Installing tmux plugin manager (TPM)..."
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 
 info "✅ All tasks completed! Reboot to apply shell changes."
 

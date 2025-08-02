@@ -1,3 +1,4 @@
 .config/nvim/lazy-lock.json
 .config/tmux/plugins
 .config/hypr/local_variables.conf
+.config/waybar/config

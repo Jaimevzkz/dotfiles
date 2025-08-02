@@ -36,7 +36,7 @@ window#waybar {
 }
 
 #workspaces button {
-  padding: 2px 0 0 0;
+  padding: 0;
   color: #fdf6e3;
 }
 #workspaces button.active {

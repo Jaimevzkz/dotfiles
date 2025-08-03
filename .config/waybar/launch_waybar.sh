@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source "$HOME/.local_zsh_vars"
+
 HOME_DIR=$(eval echo ~$USER)
 WAYBAR_DIR="$HOME_DIR/.config/waybar"
 

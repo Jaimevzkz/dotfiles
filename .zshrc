@@ -59,10 +59,8 @@ fpath+=${ZDOTDIR:-~}/.zsh_functions
 #Starship
 eval "$(starship init zsh)"
 
-#export ANDROID_HOME=~/Android/Sdk
-#export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
-#export PATH=/home/vzkz/tiledmedia/go/bin:$PATH
-#export PATH=/home/vzkz/go/bin:$PATH
+# Local ENV vars
+source ~/.local_zsh_vars
 
 export GOPATH=~/tiledmedia/TiledmediaCore/Tools/ArchlinuxPKGBUILDs/go-tiledmedia/go
 export PATH="$GOPATH/bin:$PATH"

@@ -3,3 +3,4 @@
 .config/hypr/local_variables.conf
 .config/waybar/config
 .config/kanshi/config
+.local_zsh_vars

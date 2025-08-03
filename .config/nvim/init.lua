@@ -40,6 +40,14 @@ vim.cmd([[
   highlight NonText guibg=NONE ctermbg=NONE
 ]])
 
+
+-- Auto-update plugins on startup (non-blocking)
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    require("lazy").update({ show = false }) -- set show = true to see UI
+  end,
+})
+
 require("config.lazy")
 
 

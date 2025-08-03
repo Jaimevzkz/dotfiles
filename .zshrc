@@ -62,6 +62,8 @@ eval "$(starship init zsh)"
 # Local ENV vars
 source ~/.local_zsh_vars
 
+export SYSTEMD_EDITOR=nvim
+
 export GOPATH=~/tiledmedia/TiledmediaCore/Tools/ArchlinuxPKGBUILDs/go-tiledmedia/go
 export PATH="$GOPATH/bin:$PATH"
 export PATH=$GOPATH:$PATH

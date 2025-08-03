@@ -2,3 +2,4 @@
 .config/tmux/plugins
 .config/hypr/local_variables.conf
 .config/waybar/config
+.config/kanshi/config

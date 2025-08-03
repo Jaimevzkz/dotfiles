@@ -70,3 +70,6 @@ export PATH=$GOPATH:$PATH
 
 export GOPROXY=https://proxy.golang.org,direct
 export GOSUMDB=sum.golang.org
+
+export JAVA_HOME=/usr/lib/jvm/java-24-openjdk
+export PATH=$JAVA_HOME/bin:$PATH

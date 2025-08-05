@@ -1,10 +1,10 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 # Uncomment one of the following lines to change the auto-update behavior
- zstyle ':omz:update' mode auto      # update automatically without asking
+zstyle ':omz:update' mode auto      # update automatically without asking
 
 # Uncomment the following line to change how often to auto-update (in days).
- zstyle ':omz:update' frequency 13
+zstyle ':omz:update' frequency 13
  
 plugins=(
   git
@@ -23,9 +23,6 @@ alias e="exit"
 alias cl="clear"
 alias t="tmux attach || tmux"
 alias logout="pkill -KILL -u $USER"
-alias update="sudo nixos-rebuild switch --flake ~/nixos/#nixos-config"
-alias cat="bat"
-alias bat="cat"
 alias wifi="sudo nmtui"
 
 #Tiledmedia
@@ -49,6 +46,7 @@ alias lg='lazygit'
 
 # Set nvim as default editor
 export EDITOR="nvim"
+export SYSTEMD_EDITOR=nvim
 
 # zoxide
 eval "$(zoxide init --cmd cd zsh)"
@@ -62,7 +60,6 @@ eval "$(starship init zsh)"
 # Local ENV vars
 source ~/.local_zsh_vars
 
-export SYSTEMD_EDITOR=nvim
 
 export GOPATH=~/tiledmedia/TiledmediaCore/Tools/ArchlinuxPKGBUILDs/go-tiledmedia/go
 export PATH="$GOPATH/bin:$PATH"

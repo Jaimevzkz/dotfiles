@@ -30,9 +30,9 @@ return {
       lspconfig.rust_analyzer.setup({
         capabilities = capabilities,
       })
-      --      lspconfig.gopls.setup({
-      --       capabilities = capabilities,
-      --    })
+      lspconfig.json_lsp.setup({
+        capabilities = capabilities,
+      })
 
       -- LSP commands
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})

@@ -5,3 +5,5 @@
 [user]
 	email = jaimevazquezmartin@protonmail.com
 	name = Jaime
+[pull]
+	rebase = true

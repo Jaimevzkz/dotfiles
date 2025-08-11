@@ -41,6 +41,13 @@ vim.cmd([[
 ]])
 
 
+vim.api.nvim_create_autocmd("TextYankPost", {
+    callback = function()
+        vim.highlight.on_yank()
+    end,
+})
+
+
 -- Auto-update plugins on startup (non-blocking)
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()

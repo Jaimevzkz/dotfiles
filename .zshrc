@@ -34,6 +34,19 @@ function CleanAndroidCacheTiledmediaSDK() {
    find ~/tiledmedia/TiledmediaCore/SDK -type d -name ".externalNativeBuild"  -exec rm -rf {} \;
 } 
 
+alias gosdk="~/tiledmedia/TiledmediaCore/SDK"
+clog () {
+	cpwd=$(pwd)
+	gosdk
+	cd ../Tools/CoreLogToolbox
+	if [[ ! -f "./downloads/$1/clearvr${2}.tmlog" ]]; then
+		go run . lookup $1
+		mv ./downloads/$1/clearvr.tmlog ./downloads/$1/clearvr${2}.tmlog
+	fi
+	code ./downloads/$1/clearvr${2}.tmlog
+	cd ${cpwd}
+}
+
 #git
 psh() {
   if [ -z "$1" ]; then

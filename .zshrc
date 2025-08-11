@@ -27,7 +27,7 @@ alias wifi="sudo nmtui"
 
 #Tiledmedia
 alias libs=" nautilus ~/tiledmedia/TiledmediaCore/Showcase/android/kotlin/flat/app/libs"
-alias sdklibs="nautilus ~/tiledmedia/TiledmediaCore/SDK/Android/ClearVRSDK/tiledmediasdk/build/outputs/aar"
+alias sdklibs="nautilus ~/tiledmedia/TiledmediaCore/SDK/Android/ClearVRSDK/tiledmediasdk/"
 function CleanAndroidCacheTiledmediaSDK() {                                      
    find  ~/tiledmedia/TiledmediaCore/SDK/Android -type d -name ".gradle"  -exec rm -rf {} \;
    find  ~/tiledmedia/TiledmediaCore/SDK -type d -name ".cache"  -exec rm -rf {} \;

@@ -21,7 +21,7 @@ rm -rf yay
 
 # 3. Install packages using yay
 info "Installing packages with yay..."
-yay -S --noconfirm fastfetch zsh nvim tree starship \
+yay -S --noconfirm fastfetch zsh nvim tree starship lazygit \
   zoxide fzf tmux eza htop stow ttf-firacode-nerd bat\
    otf-font-awesome ttf-space-mono-nerd \
 
@@ -45,8 +45,8 @@ chsh -s /usr/bin/zsh
 
 # 7. Install zsh plugins
 info "Installing zsh plugins..."
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/jeffreytse/zsh-vi-mode ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-vi-mode
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+git clone https://github.com/jeffreytse/zsh-vi-mode ~/.oh-my-zsh/custom/plugins/zsh-vi-mode
 
 # 8. Install tmux plugin manager
 info "Installing tmux plugin manager (TPM)..."

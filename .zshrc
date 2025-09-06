@@ -26,13 +26,14 @@ alias logout="pkill -KILL -u $USER"
 alias wifi="sudo nmtui"
 
 #Tiledmedia
-alias libs=" nautilus ~/tiledmedia/TiledmediaCore/Showcase/android/kotlin/flat/app/libs"
+alias libs="nautilus ~/tiledmedia/TiledmediaCore/Showcase/android/kotlin/flat/app/libs"
 alias sdklibs="nautilus ~/tiledmedia/TiledmediaCore/SDK/Android/ClearVRSDK/tiledmediasdk/"
 function CleanAndroidCacheTiledmediaSDK() {                                      
    find  ~/tiledmedia/TiledmediaCore/SDK/Android -type d -name ".gradle"  -exec rm -rf {} \;
    find  ~/tiledmedia/TiledmediaCore/SDK -type d -name ".cache"  -exec rm -rf {} \;
    find ~/tiledmedia/TiledmediaCore/SDK -type d -name ".externalNativeBuild"  -exec rm -rf {} \;
 } 
+alias builders="cd ~/tiledmedia/TiledmediaCore/Tools/BuildCLI && go run . builders monitor"
 
 alias gosdk="~/tiledmedia/TiledmediaCore/SDK"
 clog () {
@@ -43,7 +44,7 @@ clog () {
 		go run . lookup $1
 		mv ./downloads/$1/clearvr.tmlog ./downloads/$1/clearvr${2}.tmlog
 	fi
-	code ./downloads/$1/clearvr${2}.tmlog
+	nvim ./downloads/$1/clearvr${2}.tmlog
 	cd ${cpwd}
 }
 

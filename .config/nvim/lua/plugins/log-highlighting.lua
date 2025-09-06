@@ -6,7 +6,8 @@ return {
       ---@type string|string[]  File extensions. Default: 'log'
       extension = {
         'log',
-        'txt'
+        'txt',
+        'tmlog'
       },
 
       ---@type string|string[]  File names or full file paths. Default: {}

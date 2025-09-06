@@ -9,7 +9,7 @@ info() {
     echo -e "\033[1;34m[INFO]\033[0m $1"
 }
 
-# 1. Install yay
+# Install yay
 info "Cloning yay from AUR..."
 cd ~
 sudo pacman -S --needed git base-devel --noconfirm
@@ -19,13 +19,13 @@ makepkg -si --noconfirm
 cd ..
 rm -rf yay
 
-# 3. Install packages using yay
+# Install packages using yay
 info "Installing packages with yay..."
 yay -S --noconfirm fastfetch zsh nvim tree starship lazygit \
   zoxide fzf tmux eza htop stow ttf-firacode-nerd bat\
-   otf-font-awesome ttf-space-mono-nerd \
+   otf-font-awesome ttf-space-mono-nerd openssh \
 
-# 4. Install Oh My Zsh if not already installed
+# Install Oh My Zsh if not already installed
 if [ ! -d "${ZSH:-$HOME/.oh-my-zsh}" ]; then
     info "Installing Oh My Zsh..."
     RUNZSH=no CHSH=no KEEP_ZSHRC=yes \
@@ -34,21 +34,26 @@ else
     info "Oh My Zsh already installed."
 fi
 
-# 5. Stow dotfiles
+# Stow dotfiles
 info "Stowing dotfiles..."
 cd ~/dotfiles
 stow .
 
-# 6. Set zsh as default shell
+# Start ssh server
+info "Starting ssh server..."
+sudo systemctl enable sshd
+sudo systemctl start sshd
+  
+# Set zsh as default shell
 info "Setting zsh as default shell..."
 chsh -s /usr/bin/zsh
 
-# 7. Install zsh plugins
+# Install zsh plugins
 info "Installing zsh plugins..."
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 git clone https://github.com/jeffreytse/zsh-vi-mode ~/.oh-my-zsh/custom/plugins/zsh-vi-mode
 
-# 8. Install tmux plugin manager
+# Install tmux plugin manager
 info "Installing tmux plugin manager (TPM)..."
 git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 

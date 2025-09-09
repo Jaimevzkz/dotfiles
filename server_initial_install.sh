@@ -22,7 +22,7 @@ rm -rf yay
 # Install packages using yay
 info "Installing packages with yay..."
 yay -S --noconfirm fastfetch zsh nvim tree starship lazygit \
-  zoxide fzf tmux eza htop stow ttf-firacode-nerd bat\
+  zoxide wget fzf tmux eza htop stow ttf-firacode-nerd bat\
    otf-font-awesome ttf-space-mono-nerd openssh \
 
 # Install Oh My Zsh if not already installed

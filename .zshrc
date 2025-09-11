@@ -24,6 +24,8 @@ alias cl="clear"
 alias t="tmux attach || tmux"
 alias logout="pkill -KILL -u $USER"
 alias wifi="sudo nmtui"
+alias test="./gradlew testDebugUnitTest"
+alias androidTest="./gradlew connectedAndroidTest"
 
 #Tiledmedia
 alias libs="nautilus ~/tiledmedia/TiledmediaCore/Showcase/android/kotlin/flat/app/libs"

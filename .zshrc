@@ -26,6 +26,8 @@ alias logout="pkill -KILL -u $USER"
 alias wifi="sudo nmtui"
 alias test="./gradlew testDebugUnitTest"
 alias androidTest="./gradlew connectedAndroidTest"
+#Server
+alias servicesRestart="~/homelab-services/scripts/update_and_restart.sh"
 
 #Tiledmedia
 alias libs="nautilus ~/tiledmedia/TiledmediaCore/Showcase/android/kotlin/flat/app/libs"

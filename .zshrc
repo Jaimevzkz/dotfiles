@@ -37,7 +37,7 @@ function CleanAndroidCacheTiledmediaSDK() {
    find  ~/tiledmedia/TiledmediaCore/SDK -type d -name ".cache"  -exec rm -rf {} \;
    find ~/tiledmedia/TiledmediaCore/SDK -type d -name ".externalNativeBuild"  -exec rm -rf {} \;
 } 
-alias builders="cd ~/tiledmedia/TiledmediaCore/Tools/BuildCLI && go run . builders monitor"
+alias builders="cd ~/tiledmedia/TiledmediaCore/Tools/BuildCLI && go run . builders monitor -a Jaime && cd -"
 
 alias gosdk="~/tiledmedia/TiledmediaCore/SDK"
 clog () {

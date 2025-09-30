@@ -85,3 +85,5 @@ export PATH=$GOPATH:$PATH
 
 export GOPROXY=https://proxy.golang.org,direct
 export GOSUMDB=sum.golang.org
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/platform-tools

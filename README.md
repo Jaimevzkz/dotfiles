@@ -7,6 +7,10 @@ Once a fresh Arch linux install is ready on your system, follow this steps to se
 - Clone this dotfiles repository: `git clone https://github.com/Jaimevzkz/dotfiles.git ~`
 - Navigate to dotfiles repository: `cd ~/dotfiles`
 - get the name of the wifi interface (using `nmcli device status`) and write it in a file `~/dotfiles/.local_zsh_vars` with the name `WIFI_IFACE` (i.e. `export WIFI_IFACE="wlp2s0"`). This will be used by the waybar to show the network status.
+- Add a symbolic link to the spotify status fetcher script:
+```shell
+sudo ln -sf ~/dotfiles/.config/waybar/mediaplayer.py /bin/mediaplayer.py
+```
 - If needed, adjust `~/dotfiles/.config/kanshi/config` file to fit you specific screen
 - Give the install script execution permission (in case it's not executable by default): `chmod +x initial_install.sh` 
 - Run the install script: `./initial_install.sh`

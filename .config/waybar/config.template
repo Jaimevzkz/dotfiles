@@ -9,7 +9,10 @@
 		"custom/right-arrow-dark",
 		"custom/right-arrow-light",
     "network",
-		"custom/right-arrow-dark"
+		"custom/right-arrow-dark",
+		"custom/right-arrow-light",
+    "custom/spotify",
+		"custom/right-arrow-dark",
 	],
 	"modules-center": [
 		"custom/left-arrow-dark",
@@ -152,5 +155,13 @@
   "tooltip-format-ethernet": "{ifname} ",
   "tooltip-format-disconnected": "Disconnected",
   "max-length": 50
-  }
+  },
+  "custom/spotify": {
+      "exec": "mediaplayer.py",
+      "format": "{}  ",
+      "return-type": "json",
+      "on-click": "playerctl play-pause",
+      "on-scroll-up": "playerctl next",
+      "on-scroll-down": "playerctl previous"
+  },
 }

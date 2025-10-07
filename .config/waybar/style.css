@@ -31,6 +31,7 @@ window#waybar {
 #disk,
 #tray,
 #network,
+#custom-spotify,
 #backlight{
   background: #1a1a1a;
 }
@@ -50,41 +51,33 @@ window#waybar {
 #workspaces button:hover {
   background: #1a1a1a;
   border: #1a1a1a;
-/*
-  padding: 0 6px;
-*/
 }
 
 #backlight{
-  /*color: #e26161;*/
   color: #fdfd96;
-  /*color: @sky;*/
 }
 
 #pulseaudio {
   color: #268bd2;
-  /*color: @sky;*/
 }
 #memory {
   color: #2aa198;
-  /*color: @green;*/
 }
 #cpu {
   color: #6c71c4;
-  /*color: @peach;*/
 }
 #battery {
   color: #859900;
-  /*color: @flamingo;*/
 
 }
 #disk {
   color: #b58900;
-  /*color: @teal;*/
 }
 #network {
   color: #f2cdcd;
-  /*color: @flamingo;*/
+}
+#custom-spotify{
+  color: #88c390;
 }
 
 #clock,
@@ -94,6 +87,7 @@ window#waybar {
 #battery,
 #disk,
 #network,
+#custom-spotify,
 #backlight{
   padding: 0 6px;
 }

@@ -53,8 +53,4 @@ info "Installing zsh plugins..."
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 git clone https://github.com/jeffreytse/zsh-vi-mode ~/.oh-my-zsh/custom/plugins/zsh-vi-mode
 
-# Install tmux plugin manager
-info "Installing tmux plugin manager (TPM)..."
-git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
-
 info "✅ All tasks completed! Reboot to apply shell changes."

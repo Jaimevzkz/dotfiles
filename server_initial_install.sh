@@ -33,10 +33,19 @@ else
     info "Oh My Zsh already installed."
 fi
 
+# Remove initial .zshrc
+info "Removing default .zshrc"
+rm ~/.zshrc
+
 # Stow dotfiles
 info "Stowing dotfiles..."
 cd ~/dotfiles
 stow .
+
+# Remove unnecessary files
+info "Removing unnecesary stowed files..."
+cd ~
+rm -rf ASSettings.zip initial_install.sh server_initial_install.sh system_preview.png wallpaper .ideavimrc .bash_history .bash_logout .bash_profile .bashrc
   
 # Set zsh as default shell
 info "Setting zsh as default shell..."

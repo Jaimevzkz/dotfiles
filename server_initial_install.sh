@@ -1,4 +1,3 @@
-
 #!/usr/bin/env bash
 
 set -e  # Exit on error
@@ -23,7 +22,7 @@ rm -rf yay
 info "Installing packages with yay..."
 yay -S --noconfirm fastfetch zsh nvim tree starship lazygit \
   zoxide wget fzf tmux eza htop stow ttf-firacode-nerd bat\
-   otf-font-awesome ttf-space-mono-nerd openssh \
+   otf-font-awesome ttf-space-mono-nerd \
 
 # Install Oh My Zsh if not already installed
 if [ ! -d "${ZSH:-$HOME/.oh-my-zsh}" ]; then
@@ -38,11 +37,6 @@ fi
 info "Stowing dotfiles..."
 cd ~/dotfiles
 stow .
-
-# Start ssh server
-info "Starting ssh server..."
-sudo systemctl enable sshd
-sudo systemctl start sshd
   
 # Set zsh as default shell
 info "Setting zsh as default shell..."

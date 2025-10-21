@@ -25,8 +25,8 @@ yay -S --noconfirm fastfetch zsh kitty syncthing obsidian nvim lazygit tree star
   signal-desktop android-sdk-platform-tools usbutils docker docker-compose webcord \
   fuse gnome-tweaks hyprland wofi hypridle hyprlock hyprpaper dolphin \
   networkmanager pamixer brightnessctl hyprshot waybar blueman kanshi dunst otf-font-awesome ttf-space-mono-nerd \
-  npm github-cli
-
+  npm github-cli bluez bluez-utils
+#
 # Install Oh My Zsh if not already installed
 if [ ! -d "${ZSH:-$HOME/.oh-my-zsh}" ]; then
     info "Installing Oh My Zsh..."

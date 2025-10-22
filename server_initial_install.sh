@@ -22,7 +22,7 @@ rm -rf yay
 info "Installing packages with yay..."
 yay -S --noconfirm fastfetch zsh nvim tree starship lazygit \
   zoxide wget fzf tmux eza htop stow ttf-firacode-nerd bat\
-   otf-font-awesome ttf-space-mono-nerd \
+   otf-font-awesome ttf-space-mono-nerd bind\
 
 # Install Oh My Zsh if not already installed
 if [ ! -d "${ZSH:-$HOME/.oh-my-zsh}" ]; then

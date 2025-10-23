@@ -27,6 +27,6 @@ return {
         width = 30,
       }
     })
-    vim.keymap.set('n', '<C-n>', ':Neotree toggle left<CR>', {})
+    vim.keymap.set('n', '<C-n>', ':Neotree reveal<CR>', {})
   end
 }

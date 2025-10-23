@@ -38,7 +38,7 @@ function CleanAndroidCacheTiledmediaSDK() {
    find ~/tiledmedia/TiledmediaCore/SDK -type d -name ".externalNativeBuild"  -exec rm -rf {} \;
 } 
 alias builders="cd ~/tiledmedia/TiledmediaCore/Tools/BuildCLI && go run . builders monitor -a Jaime && cd -"
-alias mirrorScreen="scrcpy --video-codec=h265 --max-size=768 --max-fps=60 --no-audio --keyboard=uhid"
+alias mirrorScreen="scrcpy --video-codec=h265 --max-size=768 --max-fps=60 --no-audio --keyboard=uhid -s 340YC10G7W122Y"
 
 alias gosdk="~/tiledmedia/TiledmediaCore/SDK"
 clog () {

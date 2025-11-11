@@ -16,7 +16,7 @@ source $ZSH/oh-my-zsh.sh
 
 alias kt='/home/vzkz/Own_Pojects/kotlin_WorkSpace && eza --icons -lah'
 alias sl='/home/vzkz/Own_Pojects/Salamandra && eza --icons -lah'
-alias dw='/home/vzkz/Downloads && eza --icons -lah'
+alias dw='~/Downloads && eza --icons -lah'
 alias l="eza --icons -lah"
 alias v="nvim"
 alias e="exit"

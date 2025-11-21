@@ -14,9 +14,7 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-alias kt='/home/vzkz/Own_Pojects/kotlin_WorkSpace && eza --icons -lah'
-alias sl='/home/vzkz/Own_Pojects/Salamandra && eza --icons -lah'
-alias dw='~/Downloads && eza --icons -lah'
+alias dw='/home/vzkz/Downloads && eza --icons -lah'
 alias l="eza --icons -lah"
 alias v="nvim"
 alias e="exit"
@@ -42,6 +40,7 @@ alias mirrorScreen="scrcpy --video-codec=h265 --max-size=384 --max-fps=60 --no-a
 alias tmwgup="nmcli connection up wg0-tiledmedia"
 alias tmwgdown="nmcli connection down wg0-tiledmedia"
 alias tmwgshow="nmcli connection show --active"
+alias generateAndroidAar="cd ~/tiledmedia/TiledmediaCore/SDK/Android/ClearVRSDK && ./gradlew clean && ./gradlew assembleNative_sdk && cp ~/tiledmedia/TiledmediaCore/SDK/Android/ClearVRSDK/tiledmediasdk/build/outputs/aar/tiledmediasdk-native_sdk-debug.aar ~/tiledmedia/TiledmediaCore/Showcase/android/kotlin/flat/app/libs/"
 
 
 alias gosdk="~/tiledmedia/TiledmediaCore/SDK"

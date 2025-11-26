@@ -40,7 +40,8 @@ alias mirrorScreen="scrcpy --video-codec=h265 --max-size=384 --max-fps=60 --no-a
 alias tmwgup="nmcli connection up wg0-tiledmedia"
 alias tmwgdown="nmcli connection down wg0-tiledmedia"
 alias tmwgshow="nmcli connection show --active"
-alias generateAndroidAar="cd ~/tiledmedia/TiledmediaCore/SDK/Android/ClearVRSDK && ./gradlew clean && ./gradlew assembleNative_sdk && cp ~/tiledmedia/TiledmediaCore/SDK/Android/ClearVRSDK/tiledmediasdk/build/outputs/aar/tiledmediasdk-native_sdk-debug.aar ~/tiledmedia/TiledmediaCore/Showcase/android/kotlin/flat/app/libs/"
+alias generateAndroidAar="cd /home/vzkz/tiledmedia/TiledmediaCore/SDK && mage -v  build:androidCore3264 && cd ~/tiledmedia/TiledmediaCore/SDK/Android/ClearVRSDK && ./gradlew clean && ./gradlew assembleNative_sdk && cp ~/tiledmedia/TiledmediaCore/SDK/Android/ClearVRSDK/tiledmediasdk/build/outputs/aar/tiledmediasdk-native_sdk-debug.aar ~/tiledmedia/TiledmediaCore/Showcase/android/kotlin/flat/app/libs/"
+alias spatialGenerateAar="cd /home/vzkz/tiledmedia/TiledmediaCore/SDK && mage -v  build:androidCore3264 && mage -v build:androidSpatialSDK"
 
 
 alias gosdk="~/tiledmedia/TiledmediaCore/SDK"

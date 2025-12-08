@@ -22,7 +22,7 @@ rm -rf yay
 info "Installing packages with yay..."
 yay -S --noconfirm fastfetch zsh kitty obsidian nvim lazygit tree starship firefox \
   zoxide fzf tmux eza htop stow ttf-firacode-nerd android-studio bat\
-  signal-desktop android-sdk-platform-tools usbutils docker docker-compose webcord \
+  signal-desktop android-sdk-platform-tools usbutils docker docker-compose \
   fuse gnome-tweaks hyprland wofi hypridle hyprlock hyprpaper dolphin \
   networkmanager pamixer brightnessctl hyprshot waybar blueman kanshi dunst otf-font-awesome ttf-space-mono-nerd \
   npm github-cli bluez bluez-utils scrcpy wireguard-tools bind borg cryptsetup \

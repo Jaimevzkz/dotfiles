@@ -11,7 +11,8 @@ Once a fresh Arch linux install is ready on your system, follow this steps to se
 ```shell
 sudo ln -sf ~/dotfiles/.config/waybar/mediaplayer.py /bin/mediaplayer.py
 ```
-- If needed, adjust `~/dotfiles/.config/kanshi/config` file to fit you specific screen
+- If needed, adjust `~/dotfiles/.config/kanshi/config` file to fit you specific screen, *Important:* The scale on the kanshi file has priority over the one in the `hyprland.conf` file, make sure this value is correct.
+- Change or create the file `~/dotfiles/.config/hypr/local_variables.conf` with the correct scale value for your screen (i.e. `$scale = 1.6`)
 - Give the install script execution permission (in case it's not executable by default): `chmod +x initial_install.sh` 
 - Run the install script: `./initial_install.sh`
   - When running the `stow .`, some files/directories may cause conflicts. In this case you should remove them or rename them as a backup (i.e. `mv ~/.zshrc ~/.zshrc.bak`) and run the script again (no worries about reinstalling packages, as they will be ignored if they are already installed)

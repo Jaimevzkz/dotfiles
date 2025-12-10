@@ -42,6 +42,17 @@ alias tmwgdown="nmcli connection down wg0-tiledmedia"
 alias tmwgshow="nmcli connection show --active"
 alias generateAndroidAar="cd /home/vzkz/tiledmedia/TiledmediaCore/SDK && mage -v  build:androidCore3264 && cd ~/tiledmedia/TiledmediaCore/SDK/Android/ClearVRSDK && ./gradlew clean && ./gradlew assembleNative_sdk && cp ~/tiledmedia/TiledmediaCore/SDK/Android/ClearVRSDK/tiledmediasdk/build/outputs/aar/tiledmediasdk-native_sdk-debug.aar ~/tiledmedia/TiledmediaCore/Showcase/android/kotlin/flat/app/libs/"
 alias spatialGenerateAar="cd /home/vzkz/tiledmedia/TiledmediaCore/SDK && mage -v  build:androidCore3264 && mage -v build:androidSpatialSDK"
+function triggerBuild () {
+  cpwd=$(pwd)
+  cd ~/tiledmedia/TiledmediaCore/Tools/BuildCLI
+  if [ -n "$1" ]
+  then
+    go run . build $2 --select $1
+  else 
+    go run . build $2 --select all
+  fi
+  cd ${cpwd}
+}
 
 
 alias gosdk="~/tiledmedia/TiledmediaCore/SDK"

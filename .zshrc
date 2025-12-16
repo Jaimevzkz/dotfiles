@@ -35,7 +35,6 @@ function CleanAndroidCacheTiledmediaSDK() {
    find  ~/tiledmedia/TiledmediaCore/SDK -type d -name ".cache"  -exec rm -rf {} \;
    find ~/tiledmedia/TiledmediaCore/SDK -type d -name ".externalNativeBuild"  -exec rm -rf {} \;
 } 
-alias builders="tmwgup && cd ~/tiledmedia/TiledmediaCore/Tools/BuildCLI && go run . builders monitor -a Jaime && cd - && tmwgdown"
 alias mirrorScreen="scrcpy --video-codec=h265 --max-size=384 --max-fps=60 --no-audio --keyboard=uhid -s 340YC10G7W122Y"
 alias tmwgup="nmcli connection up wg0-tiledmedia"
 alias tmwgdown="nmcli connection down wg0-tiledmedia"
@@ -53,7 +52,19 @@ function triggerBuild () {
   fi
   cd ${cpwd}
 }
+builders() {
+    tmwgup
+    cd ~/tiledmedia/TiledmediaCore/Tools/BuildCLI
 
+    if [ -n "$1" ]; then
+        go run . builders monitor -a "$1"
+    else
+        go run . builders monitor
+    fi
+
+    cd - >/dev/null
+    tmwgdown
+}
 
 alias gosdk="~/tiledmedia/TiledmediaCore/SDK"
 clog () {

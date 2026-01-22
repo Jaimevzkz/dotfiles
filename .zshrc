@@ -35,7 +35,9 @@ function CleanAndroidCacheTiledmediaSDK() {
    find  ~/tiledmedia/TiledmediaCore/SDK -type d -name ".cache"  -exec rm -rf {} \;
    find ~/tiledmedia/TiledmediaCore/SDK -type d -name ".externalNativeBuild"  -exec rm -rf {} \;
 } 
-alias mirrorScreen="scrcpy --video-codec=h265 --max-size=384 --max-fps=60 --no-audio --keyboard=uhid -s 340YC10G7W122Y"
+#alias mirrorScreen="scrcpy --video-codec=h265 --max-size=384 --max-fps=60 --no-audio --keyboard=uhid -s 340YC10G7W122Y"
+alias mirrorScreen="scrcpy --video-codec=h265 --no-audio --keyboard=uhid -s 340YC10G7W122Y"
+
 alias tmwgup="nmcli connection up wg0-tiledmedia"
 alias tmwgdown="nmcli connection down wg0-tiledmedia"
 alias tmwgshow="nmcli connection show --active"
@@ -64,6 +66,26 @@ builders() {
 
     cd - >/dev/null
     tmwgdown
+}
+extract() {
+  for archive in "$@"; do
+    [ -f "$archive" ] || { echo "File not found: $archive"; continue; }
+
+    case "$archive" in
+      *.zip)
+        dir="${archive%.zip}"
+        mkdir -p "$dir" && unzip "$archive" -d "$dir"
+        ;;
+      *.tar.gz|*.tgz)
+        dir="${archive%.tar.gz}"
+        dir="${dir%.tgz}"
+        mkdir -p "$dir" && tar -xzf "$archive" -C "$dir"
+        ;;
+      *)
+        echo "Unsupported archive type: $archive"
+        ;;
+    esac
+  done
 }
 
 alias gosdk="~/tiledmedia/TiledmediaCore/SDK"

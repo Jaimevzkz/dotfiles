@@ -41,19 +41,49 @@ alias mirrorScreen="scrcpy --video-codec=h265 --no-audio --keyboard=uhid -s 340Y
 alias tmwgup="nmcli connection up wg0-tiledmedia"
 alias tmwgdown="nmcli connection down wg0-tiledmedia"
 alias tmwgshow="nmcli connection show --active"
-alias generateAndroidAar="cd /home/vzkz/tiledmedia/TiledmediaCore/SDK && mage -v  build:androidCore3264 && cd ~/tiledmedia/TiledmediaCore/SDK/Android/ClearVRSDK && ./gradlew clean && ./gradlew assembleNative_sdk && cp ~/tiledmedia/TiledmediaCore/SDK/Android/ClearVRSDK/tiledmediasdk/build/outputs/aar/tiledmediasdk-native_sdk-debug.aar ~/tiledmedia/TiledmediaCore/Showcase/android/kotlin/flat/app/libs/"
-alias spatialGenerateAar="cd /home/vzkz/tiledmedia/TiledmediaCore/SDK && mage -v  build:androidCore3264 && mage -v build:androidSpatialSDK"
-function triggerBuild () {
-  cpwd=$(pwd)
-  cd ~/tiledmedia/TiledmediaCore/Tools/BuildCLI
-  if [ -n "$1" ]
-  then
-    go run . build $2 --select $1
-  else 
-    go run . build $2 --select all
+generateAndroidAar() {
+  local SDK_DIR="$HOME/tiledmedia/TiledmediaCore/SDK"
+  local AAR_SOURCE="$SDK_DIR/Android/ClearVRSDK/tiledmediasdk/build/outputs/aar/tiledmediasdk-native_sdk-debug.aar"
+  local AAR_DEST="$HOME/tiledmedia/TiledmediaCore/Showcase/android/kotlin/flat/app/libs"
+
+  cd "$SDK_DIR" || return 1
+
+  if [[ "$1" == "backport" ]]; then
+    echo "▶ Building Core (backport)"
+    mage -v build:androidCore64
+  else
+    echo "▶ Building Core AAR"
+    mage -v build:androidCore3264
   fi
-  cd ${cpwd}
+
+  cd "$SDK_DIR/Android/ClearVRSDK" || return 1
+
+  echo "▶ Building SDK"
+  ./gradlew clean
+  ./gradlew assembleNative_sdk
+
+  cp "$AAR_SOURCE" "$AAR_DEST"
+  echo "AAR copied to $AAR_DEST"
 }
+alias spatialGenerateAar="cd /home/vzkz/tiledmedia/TiledmediaCore/SDK && mage -v  build:androidCore3264 && mage -v build:androidSpatialSDK"
+
+function triggerBuild () {
+  local cpwd
+  cpwd=$(pwd)
+  cd ~/tiledmedia/TiledmediaCore/Tools/BuildCLI || return 1
+
+  if [ -n "$1" ]; then
+    select="$1"
+    shift
+  else
+    select="all"
+  fi
+
+  go run . build "$@" --select "$select" --notify Jaime
+
+  cd "$cpwd" || return 1
+}
+
 builders() {
     tmwgup
     cd ~/tiledmedia/TiledmediaCore/Tools/BuildCLI

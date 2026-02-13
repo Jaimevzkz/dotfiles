@@ -24,6 +24,7 @@ require("lazy").setup({
     { import = "plugins/languages" },
     { import = "plugins/util" },
     { import = "plugins/essential" },
+    { import = "plugins/ai" },
   },
   checker = { enabled = true },
 })

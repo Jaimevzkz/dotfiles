@@ -26,6 +26,7 @@ yay -S --noconfirm fastfetch zsh kitty obsidian nvim lazygit tree starship firef
   fuse gnome-tweaks hyprland wofi hypridle hyprlock hyprpaper dolphin \
   networkmanager pamixer brightnessctl hyprshot waybar blueman kanshi dunst otf-font-awesome ttf-space-mono-nerd \
   npm github-cli bluez bluez-utils scrcpy wireguard-tools bind borg cryptsetup tailscale slack-desktop \
+  opencode lsof
   
 # Install Oh My Zsh if not already installed
 if [ ! -d "${ZSH:-$HOME/.oh-my-zsh}" ]; then

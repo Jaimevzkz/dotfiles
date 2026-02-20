@@ -33,6 +33,20 @@ return {
 				vim.lsp.enable(server)
 			end
 
+			-- gopls (using custom Go installation, not Mason)
+			vim.lsp.config.gopls = {
+				capabilities = capabilities,
+				settings = {
+					gopls = {
+						analyses = {
+							unusedparams = true,
+						},
+						staticcheck = true,
+					},
+				},
+			}
+			vim.lsp.enable("gopls")
+
 			-- Keymaps
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})

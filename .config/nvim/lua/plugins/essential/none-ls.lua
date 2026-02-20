@@ -7,10 +7,6 @@ return {
 				sources = {
 					-- Stylua formatting for Lua
 					null_ls.builtins.formatting.stylua,
-					null_ls.builtins.diagnostics.golangci_lint,
-					--null_ls.builtins.diagnostics.detekt,
-					--null_ls.builtins.formatting.ast_grep,
-					null_ls.builtins.formatting.gci,
 					null_ls.builtins.formatting.fixjson,
 				},
 			})

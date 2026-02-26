@@ -7,7 +7,6 @@ return {
 				sources = {
 					-- Stylua formatting for Lua
 					null_ls.builtins.formatting.stylua,
-					null_ls.builtins.formatting.fixjson,
 				},
 			})
 			vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})

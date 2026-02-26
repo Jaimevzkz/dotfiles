@@ -24,6 +24,8 @@ return {
 				--"kotlin_language_server",
 				--"kotlin_lsp",
 				"rust_analyzer",
+        "gopls",
+        "json_lsp",
 			}
 
 			for _, server in ipairs(servers) do
@@ -32,20 +34,6 @@ return {
 				}
 				vim.lsp.enable(server)
 			end
-
-			-- gopls (using custom Go installation, not Mason)
-			vim.lsp.config.gopls = {
-				capabilities = capabilities,
-				settings = {
-					gopls = {
-						analyses = {
-							unusedparams = true,
-						},
-						staticcheck = true,
-					},
-				},
-			}
-			vim.lsp.enable("gopls")
 
 			-- Keymaps
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})

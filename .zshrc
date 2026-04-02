@@ -22,7 +22,6 @@ alias cl="clear"
 alias t="tmux attach || tmux"
 alias logout="pkill -KILL -u $USER"
 alias wifi="sudo nmtui"
-alias test="./gradlew testDebugUnitTest"
 alias androidTest="./gradlew connectedAndroidTest"
 #Server
 alias servicesRestart="~/homelab-services/scripts/update_and_restart.sh"
@@ -43,27 +42,16 @@ alias tmwgdown="nmcli connection down wg0-tiledmedia"
 alias tmwgshow="nmcli connection show --active"
 generateAndroidAar() {
   local SDK_DIR="$HOME/tiledmedia/TiledmediaCore/SDK"
-  local AAR_SOURCE="$SDK_DIR/Android/ClearVRSDK/tiledmediasdk/build/outputs/aar/tiledmediasdk-native_sdk-debug.aar"
-  local AAR_DEST="$HOME/tiledmedia/TiledmediaCore/Showcase/android/kotlin/flat/app/libs"
 
   cd "$SDK_DIR" || return 1
-
-  if [[ "$1" == "backport" ]]; then
-    echo "▶ Building Core (backport)"
-    mage -v build:androidCore64
-  else
-    echo "▶ Building Core AAR"
-    mage -v build:androidCore3264
-  fi
+  echo "▶ Building Core AAR"
+  mage -v build:androidCore3264
+  mage -v build:androidJSUI
 
   cd "$SDK_DIR/Android/ClearVRSDK" || return 1
-
-  echo "▶ Building SDK"
   ./gradlew clean
-  ./gradlew assembleNative_sdk
-
-  cp "$AAR_SOURCE" "$AAR_DEST"
-  echo "AAR copied to $AAR_DEST"
+  cd "$SDK_DIR" || return 1
+  mage -v build:androidSDK
 }
 alias spatialGenerateAar="cd /home/vzkz/tiledmedia/TiledmediaCore/SDK && mage -v  build:androidCore3264 && mage -v build:androidSpatialSDK"
 

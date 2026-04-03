@@ -26,6 +26,7 @@ return {
 				"rust_analyzer",
         "gopls",
         "json_lsp",
+        "tinymist"
 			}
 
 			for _, server in ipairs(servers) do

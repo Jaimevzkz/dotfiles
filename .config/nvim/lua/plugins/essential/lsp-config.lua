@@ -21,8 +21,7 @@ return {
 			-- Define your servers here
 			local servers = {
 				"lua_language_server",
-				--"kotlin_language_server",
-				--"kotlin_lsp",
+				"kotlin_lsp",
 				"rust_analyzer",
         "gopls",
         "json_lsp",

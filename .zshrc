@@ -53,7 +53,15 @@ generateAndroidAar() {
   cd "$SDK_DIR" || return 1
   mage -v build:androidSDK
 }
-alias spatialGenerateAar="cd /home/vzkz/tiledmedia/TiledmediaCore/SDK && mage -v  build:androidCore3264 && mage -v build:androidSpatialSDK"
+function spatialGenerateAar() {
+  cd /home/vzkz/tiledmedia/TiledmediaCore/SDK || return 1
+  mage -v build:androidCore3264
+  if [[ "$1" == "-e" ]]; then
+    mage -v build:androidSpatialSDKExperimental
+  else
+    mage -v build:androidSpatialSDK
+  fi
+}
 
 function triggerBuild () {
   local cpwd

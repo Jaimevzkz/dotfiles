@@ -114,12 +114,12 @@
 		"interval": 5,
 		//"format": "Mem {}%"
 		//"format": "  {}%"
-		"format": "󰧑  {}%"
+		"format": "󰧑 {}%"
 	},
 	"cpu": {
 		"interval": 5,
 		//"format": "CPU {usage:2}%"
-		"format": "  {usage:2}%"
+		"format": " {usage:2}%"
 	},
 	"battery": {
     "interval": 5,
@@ -129,13 +129,13 @@
 			"critical": 15
 		},
 		"format": "{icon} {capacity}%",
-    "format-charging": "{capacity}%   ",
+    "format-charging": "{capacity}%  ",
 		"format-icons": [
-			"  ",
-			"  ",
-			"  ",
-			"  ",
-			"  "
+			"",
+			"",
+			"",
+			"",
+			""
 		]
 	},
 	"disk": {
@@ -147,7 +147,7 @@
   "network": {
   "interface": "$WIFI_IFACE",
   "format": "{ifname}",
-  "format-wifi": "     {essid} ({signalStrength}%)",
+  "format-wifi": "   {essid} ({signalStrength}%)",
   "format-ethernet": "{ipaddr}/{cidr} 󰊗",
   "format-disconnected": "󰖪 ", //An empty format will hide the module.
   "tooltip-format": "{ifname} via {gwaddr} 󰊗",

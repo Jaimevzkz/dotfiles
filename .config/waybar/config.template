@@ -26,9 +26,9 @@
 		"custom/right-arrow-dark"
 	],
 	"modules-right": [
-		//"custom/left-arrow-dark",
-		//"backlight",
-		//"custom/left-arrow-light",
+		"custom/left-arrow-dark",
+		"backlight",
+		"custom/left-arrow-light",
 
 		"custom/left-arrow-dark",
 		"pulseaudio",

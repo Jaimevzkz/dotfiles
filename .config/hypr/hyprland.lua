@@ -16,15 +16,60 @@ local menu        = "wofi --conf ~/.config/wofi/config --style ~/.config/wofi/sr
 ---- MONITORS ----
 ------------------
 
-hl.monitor({ output = "",      mode = "preferred", position = "auto", scale = "auto" })
-hl.monitor({ output = "eDP-1", mode = "preferred", position = "auto", scale = scale })
+local LAPTOP = "eDP-1"
+
+hl.monitor({ output = "",     mode = "preferred", position = "auto", scale = "auto" })
+hl.monitor({ output = LAPTOP, mode = "preferred", position = "auto", scale = "auto" })
+
+local function set_laptop(on)
+    if on then
+        hl.monitor({ output = LAPTOP, mode = "preferred", position = "auto",
+                     scale = "auto", disabled = false })
+    else
+        hl.monitor({ output = LAPTOP, disabled = true })
+    end
+end
+
+-- Hyprland lists a virtual FALLBACK output when the last real monitor goes away.
+local function is_external(name)
+    return name ~= LAPTOP
+        and name ~= "FALLBACK"
+        and not name:match("^HEADLESS%-")
+end
+
+local function has_external()
+    for _, m in ipairs(hl.get_monitors()) do
+        if is_external(m.name) then return true end
+    end
+    return false
+end
+
+-- Held so the oneshot timer isn't collected before it fires.
+local pending
+
+local function sync(delay)
+    pending = hl.timer(function() set_laptop(not has_external()) end,
+                       { timeout = delay, type = "oneshot" })
+end
+
+hl.on("monitor.added", function(mon)
+    if is_external(mon.name) then set_laptop(false) end
+end)
+
+hl.on("monitor.removed", function(mon)
+    if is_external(mon.name) then sync(100) end
+end)
+
+-- Re-running this file re-adds the LAPTOP rule above, so re-derive the state.
+hl.on("hyprland.start", function() sync(500) end)
+hl.on("config.reloaded", function() sync(500) end)
 
 -------------------
 ---- AUTOSTART ----
 -------------------
 
 hl.on("hyprland.start", function()
-    hl.exec_cmd("~/.config/waybar/launch_waybar.sh & nm-applet --indicator & dunst & hyprpaper & kanshi & hypridle")
+    hl.exec_cmd("~/.config/waybar/launch_waybar.sh & nm-applet --indicator & dunst & hyprpaper & hypridle")
     hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
 end)
 

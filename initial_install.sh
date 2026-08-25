@@ -24,7 +24,7 @@ yay -S --noconfirm fastfetch zsh kitty obsidian nvim lazygit tree starship firef
   zoxide fzf tmux eza htop stow ttf-firacode-nerd android-studio bat\
   signal-desktop android-sdk-platform-tools usbutils docker docker-compose \
   fuse gnome-tweaks hyprland wofi hypridle hyprlock hyprpaper dolphin \
-  networkmanager pamixer brightnessctl hyprshot waybar blueman kanshi dunst otf-font-awesome ttf-space-mono-nerd \
+  networkmanager pamixer brightnessctl hyprshot waybar blueman dunst otf-font-awesome ttf-space-mono-nerd \
   npm github-cli bluez bluez-utils scrcpy wireguard-tools bind borg cryptsetup tailscale slack-desktop \
   opencode lsof zathura zathura-pdf-mupdf typst
   
@@ -51,9 +51,6 @@ echo \$scale = 1.6 > ~/dotfiles/.config/hypr/local_variables.conf
 info "Creating default .local_zsh_vars"
 touch ~/dotfiles/.local_zsh_vars
 echo export WIFI_IFACE="wlp0s20f3" > ~/dotfiles/.local_zsh_vars
-
-info "Creating default kanshi config"
-cp ~/dotfiles/.config/kanshi/example_config_kanshi ~/dotfiles/.config/kanshi/config
 
 # Stow dotfiles
 info "Stowing dotfiles..."

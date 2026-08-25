@@ -123,7 +123,7 @@ split_horizontal = "prefix+s"
 # Popup width and height accept terminal cells or percentages such as "80%".
 # On Windows, command strings run through cmd.exe /d /c.
 [[keys.command]]
-key = "prefix+alt+g"
+key = "prefix+ctrl+g"
 type = "pane"
 command = "lazygit"
 

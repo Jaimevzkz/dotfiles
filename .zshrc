@@ -28,21 +28,77 @@ alias androidTest="./gradlew connectedAndroidTest"
 alias servicesRestart="~/homelab-services/scripts/update_and_restart.sh"
 
 #Tiledmedia
-alias libs="nautilus ~/tiledmedia/TiledmediaCore/Showcase/android/kotlin/flat/app/libs"
-alias sdklibs="nautilus ~/tiledmedia/TiledmediaCore/SDK/Android/ClearVRSDK/tiledmediasdk/"
-function CleanAndroidCacheTiledmediaSDK() {                                      
-   find  ~/tiledmedia/TiledmediaCore/SDK/Android -type d -name ".gradle"  -exec rm -rf {} \;
-   find  ~/tiledmedia/TiledmediaCore/SDK -type d -name ".cache"  -exec rm -rf {} \;
-   find ~/tiledmedia/TiledmediaCore/SDK -type d -name ".externalNativeBuild"  -exec rm -rf {} \;
-} 
+# Resolve the root of the TiledmediaCore git worktree we are currently in.
+# Set TM_ROOT to pin a worktree regardless of the current directory.
+tmRoot() {
+  if [[ -n "$TM_ROOT" ]]; then
+    print -r -- "$TM_ROOT"
+    return 0
+  fi
+  local root
+  root=$(git rev-parse --show-toplevel 2>/dev/null) || {
+    echo "Not inside a git worktree (set TM_ROOT to override)" >&2
+    return 1
+  }
+  if [[ ! -d "$root/SDK" ]]; then
+    echo "Worktree $root does not look like TiledmediaCore" >&2
+    return 1
+  fi
+  print -r -- "$root"
+}
+
+# Resolve the SDK dir of the git worktree we are currently in
+tmSdkDir() {
+  local root
+  root=$(tmRoot) || return 1
+  print -r -- "$root/SDK"
+}
+
+libs() {
+  local root
+  root=$(tmRoot) || return 1
+  nautilus "$root/Showcase/android/kotlin/flat/app/libs"
+}
+sdklibs() {
+  local SDK_DIR
+  SDK_DIR=$(tmSdkDir) || return 1
+  nautilus "$SDK_DIR/Android/ClearVRSDK/tiledmediasdk/"
+}
+
+# Open a worktree-relative directory as an Android Studio project (detached).
+_tmStudio() {
+  local root dir
+  root=$(tmRoot) || return 1
+  dir="$root/$1"
+  if [[ ! -d "$dir" ]]; then
+    echo "No such project: $dir" >&2
+    return 1
+  fi
+  echo "Opening $dir"
+  (android-studio "$dir" >/dev/null 2>&1 &)
+}
+
+iShowcase() { _tmStudio "Showcase/android/kotlin/flat" }
+iSdk()      { _tmStudio "SDK/Android/ClearVRSDK" }
+iSpatial()  { _tmStudio "Showcase/spatial" }
+
+function CleanAndroidCacheTiledmediaSDK() {
+   local SDK_DIR
+   SDK_DIR=$(tmSdkDir) || return 1
+   find "$SDK_DIR/Android" -type d -name ".gradle"  -exec rm -rf {} \;
+   find "$SDK_DIR" -type d -name ".cache"  -exec rm -rf {} \;
+   find "$SDK_DIR" -type d -name ".externalNativeBuild"  -exec rm -rf {} \;
+}
 #alias mirrorScreen="scrcpy --video-codec=h265 --max-size=384 --max-fps=60 --no-audio --keyboard=uhid -s 340YC10G7W122Y"
 alias mirrorScreen="scrcpy --video-codec=h265 --no-audio --keyboard=uhid -s 340YC10G7W122Y"
 
 alias tmwgup="nmcli connection up wg0-tiledmedia"
 alias tmwgdown="nmcli connection down wg0-tiledmedia"
 alias tmwgshow="nmcli connection show --active"
+
 generateAndroidAar() {
-  local SDK_DIR="$HOME/tiledmedia/TiledmediaCore/SDK"
+  local SDK_DIR
+  SDK_DIR=$(tmSdkDir) || return 1
 
   cd "$SDK_DIR" || return 1
   echo "▶ Building Core AAR"
@@ -55,7 +111,10 @@ generateAndroidAar() {
   mage -v build:androidSDK
 }
 function spatialGenerateAar() {
-  cd /home/vzkz/tiledmedia/TiledmediaCore/SDK || return 1
+  local SDK_DIR
+  SDK_DIR=$(tmSdkDir) || return 1
+
+  cd "$SDK_DIR" || return 1
   mage -v build:androidCore3264
   if [[ "$1" == "-e" ]]; then
     mage -v build:androidSpatialSDKExperimental
@@ -65,9 +124,10 @@ function spatialGenerateAar() {
 }
 
 function triggerBuild () {
-  local cpwd
+  local cpwd root
+  root=$(tmRoot) || return 1
   cpwd=$(pwd)
-  cd ~/tiledmedia/TiledmediaCore/Tools/BuildCLI || return 1
+  cd "$root/Tools/BuildCLI" || return 1
 
   if [ -n "$1" ]; then
     select="$1"
@@ -82,8 +142,10 @@ function triggerBuild () {
 }
 
 builders() {
+    local root
+    root=$(tmRoot) || return 1
     tmwgup
-    cd ~/tiledmedia/TiledmediaCore/Tools/BuildCLI
+    cd "$root/Tools/BuildCLI" || return 1
 
     if [ -n "$1" ]; then
         go run . builders monitor -a "$1"
@@ -115,7 +177,11 @@ extract() {
   done
 }
 
-alias gosdk="~/tiledmedia/TiledmediaCore/SDK"
+gosdk() {
+  local SDK_DIR
+  SDK_DIR=$(tmSdkDir) || return 1
+  cd "$SDK_DIR"
+}
 clog () {
 	cpwd=$(pwd)
 	gosdk

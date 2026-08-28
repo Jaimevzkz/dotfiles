@@ -19,12 +19,12 @@ local menu        = "wofi --conf ~/.config/wofi/config --style ~/.config/wofi/sr
 local LAPTOP = "eDP-1"
 
 hl.monitor({ output = "",     mode = "preferred", position = "auto", scale = "auto" })
-hl.monitor({ output = LAPTOP, mode = "preferred", position = "auto", scale = "auto" })
+hl.monitor({ output = LAPTOP, mode = "preferred", position = "auto", scale = scale })
 
 local function set_laptop(on)
     if on then
         hl.monitor({ output = LAPTOP, mode = "preferred", position = "auto",
-                     scale = "auto", disabled = false })
+                     scale = scale, disabled = false })
     else
         hl.monitor({ output = LAPTOP, disabled = true })
     end

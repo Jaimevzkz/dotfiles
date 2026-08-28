@@ -7,6 +7,12 @@ return {
 				sources = {
 					-- Stylua formatting for Lua
 					null_ls.builtins.formatting.stylua,
+
+					-- Markdown linting + formatting (markdownlint-cli, one binary for both).
+					-- diagnostics.markdownlint lints via stdin, so it updates as you type;
+					-- the cli2 variant only runs on save.
+					null_ls.builtins.diagnostics.markdownlint,
+					null_ls.builtins.formatting.markdownlint,
 				},
 			})
 			vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})

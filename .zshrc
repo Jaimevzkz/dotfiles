@@ -81,6 +81,7 @@ _tmStudio() {
 iShowcase() { _tmStudio "Showcase/android/kotlin/flat" }
 iSdk()      { _tmStudio "SDK/Android/ClearVRSDK" }
 iSpatial()  { _tmStudio "Showcase/spatial" }
+iDemo()  { _tmStudio "Demo/Android" }
 
 function CleanAndroidCacheTiledmediaSDK() {
    local SDK_DIR
@@ -108,6 +109,7 @@ generateAndroidAar() {
   cd "$SDK_DIR/Android/ClearVRSDK" || return 1
   ./gradlew clean
   cd "$SDK_DIR" || return 1
+  mage clean:androidLibBuildCache
   mage -v build:androidSDK
 }
 function spatialGenerateAar() {
@@ -221,9 +223,9 @@ eval "$(starship init zsh)"
 source ~/.local_zsh_vars
 
 
-export GOPATH=~/tiledmedia/TiledmediaCore/Tools/ArchlinuxPKGBUILDs/go-tiledmedia/go
-export PATH="$GOPATH/bin:$PATH"
-export PATH=$GOPATH:$PATH
+export TM_GOPATH=~/.local/opt/tm-go/usr
+export PATH="$HOME/go/bin:$PATH"
+export PATH="$TM_GOPATH/bin:$PATH"
 
 export GOPROXY=https://proxy.golang.org,direct
 export GOSUMDB=sum.golang.org

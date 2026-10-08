@@ -71,7 +71,29 @@ hl.on("config.reloaded", function() sync(500) end)
 hl.on("hyprland.start", function()
     hl.exec_cmd("~/.config/waybar/launch_waybar.sh & nm-applet --indicator & dunst & hyprpaper & hypridle")
     hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+    -- PokeTokenBar (floating pet + waybar custom/poketokenbar module) —
+    -- https://github.com/jauiwedu/PokeTokenBar-hyprland-linux-port, built in ~/PokeTokenBar-hyprland-linux-port.
+    -- POKETOKENBAR_NO_TRAY=1 hides its tray icon; the bar module (~/.config/waybar/poketokenbar.sh) replaces it.
+    hl.exec_cmd("POKETOKENBAR_NO_TRAY=1 ~/PokeTokenBar-hyprland-linux-port/.build/release/PokeTokenBarLinux")
 end)
+
+----------------------
+---- WINDOW RULES ----
+----------------------
+
+-- PokeTokenBar floating pet: keep it a small pinned float instead of tiling it.
+hl.window_rule({
+    name  = "poketokenbar-float",
+    match = { class = "^(poketokenbar|PokeTokenBarLinux)$" },
+    float = true,
+})
+hl.window_rule({
+    name  = "poketokenbar-pet",
+    match = { class = "^(poketokenbar|PokeTokenBarLinux)$", title = "^(poketokenbar|PokeTokenBarLinux)$" },
+    size  = { 96, 96 },
+    pin   = true,
+    no_initial_focus = true,
+})
 
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----

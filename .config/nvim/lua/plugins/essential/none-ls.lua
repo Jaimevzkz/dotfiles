@@ -11,7 +11,17 @@ return {
 					-- Markdown linting + formatting (markdownlint-cli, one binary for both).
 					-- diagnostics.markdownlint lints via stdin, so it updates as you type;
 					-- the cli2 variant only runs on save.
-					null_ls.builtins.diagnostics.markdownlint,
+					--
+					-- Markdown is errors-only: style warnings (line length, blank lines
+					-- around headings, ...) are noise while writing. markdownlint reports
+					-- everything as WARN, so in practice nothing is shown, but `<leader>gf`
+					-- still runs `markdownlint --fix`. The same filter is applied to
+					-- marksman in lsp-config.lua.
+					null_ls.builtins.diagnostics.markdownlint.with({
+						filter = function(diagnostic)
+							return diagnostic.severity == vim.diagnostic.severity.ERROR
+						end,
+					}),
 					null_ls.builtins.formatting.markdownlint,
 				},
 			})

@@ -10,6 +10,9 @@ return {
 		"nvim-lua/plenary.nvim",
 	},
 	opts = {
+		-- Bullets/checkboxes are rendered by render-markdown.nvim instead; both
+		-- enabled at once draw duplicate extmarks on the same lines.
+		ui = { enable = false },
 		workspaces = {
 			{
 				name = "Digital brain",

@@ -47,7 +47,12 @@
 		"custom/left-arrow-light",
 
 		"custom/left-arrow-dark",
-		"disk"
+		"disk",
+		"custom/left-arrow-light",
+
+		"custom/left-arrow-dark",
+		"custom/poketokenbar",
+		"tray"
 	],
 
 	"custom/left-arrow-dark": {
@@ -143,6 +148,19 @@
     //"format": "Disk {percentage_used:2}%",
     "format": " {percentage_used:2}%",
     "path": "/"
+  },
+  "custom/poketokenbar": {
+    "exec": "~/.config/waybar/poketokenbar.sh",
+    "return-type": "json",
+    "interval": 15,
+    "signal": 8,
+    "format": "{}",
+    "on-click": "~/.config/waybar/poketokenbar.sh toggle",
+    "on-click-right": "~/.config/waybar/poketokenbar.sh refresh"
+  },
+  "tray": {
+    "icon-size": 20,
+    "spacing": 8
   },
   "network": {
   "interface": "$WIFI_IFACE",

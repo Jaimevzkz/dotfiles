@@ -77,6 +77,24 @@ return {
 				vim.lsp.enable(server)
 			end
 
+			-- Markdown is errors-only (see the markdownlint source in none-ls.lua):
+			-- drop anything below ERROR before it reaches vim.diagnostic, so it
+			-- never shows up in signs, underlines or tiny-inline-diagnostic.
+			vim.lsp.config["marksman"] = {
+				capabilities = capabilities,
+				handlers = {
+					["textDocument/publishDiagnostics"] = function(err, result, ctx)
+						if result and result.diagnostics then
+							result.diagnostics = vim.tbl_filter(function(diagnostic)
+								-- LSP DiagnosticSeverity: 1 = Error
+								return diagnostic.severity == 1
+							end, result.diagnostics)
+						end
+						return vim.lsp.diagnostic.on_publish_diagnostics(err, result, ctx)
+					end,
+				},
+			}
+
 			-- gopls: use the binary built against Tiledmedia's Go toolchain rather
 			-- than a Mason-managed one (see the mason-lspconfig block above).
 			-- Prefer $PATH, then fall back to GOPATH/bin for when Neovim is
